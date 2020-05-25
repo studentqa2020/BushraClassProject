@@ -11,17 +11,12 @@ public class BaseConfig {
 		
 		Properties pro = new Properties();
 		
-
-		String path ="./config.properties";
+         String path ="./config.properties";
 		FileInputStream fis = new FileInputStream(path);
-		
-
 		pro.load(fis);
-		
-	
-		
 		return pro.get(key).toString();
 	}
+	
 	public static void main(String[] args) throws Throwable {
 		System.out.println(BaseConfig.getconfig("URL"));
 	

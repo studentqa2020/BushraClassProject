@@ -21,33 +21,38 @@ import com.util.Wait;
 
 public class BaseLogin {
 
-	
+	protected static WebDriver driver;
 	
 	public static void getLogin() throws Throwable {
 		
 		System.setProperty("webdriver.chrome.driver", "./Driver/chromedriver.exe");
 		System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
 		Logger.getLogger("org.openqa.selenium").setLevel(Level.OFF);
-		WebDriver driver = new ChromeDriver();
+		 driver = new ChromeDriver();
+		
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.get(BaseConfig.getconfig("URL"));
+		
 		LoginPage login =new LoginPage(driver);
 		System.out.println(driver.getTitle());
 		login.getClickAllcookies().click();
 		login.getLogin().click();
 		System.out.println(driver.getCurrentUrl());
 		System.out.println(driver.getTitle());
+		
 		Wait.getExplicitWaitClicable(driver, login.getEmail());
 		new Highlighter().getcolor(driver, login.getEmail(), "yellow");
 		login.getEmail().sendKeys(BaseConfig.getconfig("email"));	
+		
 		new Highlighter().getcolor(driver, login.getPass(),"black");
 		login.getPass().sendKeys(BaseConfig.getconfig("pass"));
 		Thread.sleep(3000);
+		
 		login.getSubmit().click();
 		TakeAppScreenShot.captureScreenShot(driver, "Login success");
 		System.out.println(driver.getTitle());
-		driver.quit();
+		//driver.quit();
 	
 	}
 }
