@@ -49,16 +49,16 @@ public class HomeSelectionPage extends BaseLogin {
 	    
 	//    Wait.getExplicitWaitClicable(driver, pf.getPropertyLogo());
 	    Wait.getExplicitWaitVisible(driver, pf.getAgentName());
-	//    Thread.sleep(4000);
 	    
-	/*    if(pf.getPropertyLogo().isDisplayed()) {
+	    if(pf.getPropertyLogo().isDisplayed()) {
 			System.out.println("Logo is present");
 		} else {
 			System.out.println("Logo is not present");
 		} 
-		*/
-	       //Agent Name
-      System.out.println("Agent name is=" +pf.getAgentName().getText());
+		
+	   //Agent Name
+	    Wait.getExplicitWaitVisible(driver, pf.getAgentName());
+	    System.out.println("Agent name is=" +pf.getAgentName().getText());
 	
          //Agent phNumber
       System.out.println("Agent PhNumber=" +pf.getAgentPhNumber().getText());

@@ -47,10 +47,9 @@ public class BaseLogin {
 		
 		new Highlighter().getcolor(driver, login.getPass(),"black");
 		login.getPass().sendKeys(BaseConfig.getconfig("pass"));
-		Thread.sleep(3000);
-		
-		login.getSubmit().click();
 		TakeAppScreenShot.captureScreenShot(driver, "Login success");
+		
+		login.getSubmit().click();		
 		System.out.println(driver.getTitle());
 		//driver.quit();
 	

@@ -21,13 +21,13 @@ public class ProductPage {
 	private WebElement searchSubmitBtn;
 	@FindBy(xpath="//a[@class='listing-results-price text-price']")
 	private List<WebElement> homePrices;
-	@FindBy(xpath="(//img[@class='js-lazy-loaded']")
+	@FindBy(xpath="//img[@class='js-lazy-loaded']")
 	private WebElement propertyLogo;
 	@FindBy(xpath="(//h4[@class='ui-agent__name'])[1]")
 	private WebElement agentName;
 	@FindBy(xpath="(//*[@class='ui-link'])[4]")
 	private WebElement agentPhoneNum;
-	@FindBy(xpath="//*[@id='header-account-panel__sign-in-link']")
+	@FindBy(xpath="//*[@id='header-account-panel__signed-in-link']")
 	private WebElement myZooplaBtn;
 	//@FindBy(xpath="(//*[@class='ui-header-account-panel-description'])[5]")
 	@FindBy(xpath="//span[contains(text(),'Sign out')]")
