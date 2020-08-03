@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import com.config.BaseConfig;
@@ -14,6 +16,7 @@ import com.util.TakeAppScreenShot;
 import com.util.Wait;
 
 public class HomeSelectionPage extends BaseLogin {
+	
 	public static void getProperty() throws Throwable {
 		getLogin();
 		
@@ -42,9 +45,10 @@ public class HomeSelectionPage extends BaseLogin {
 		System.out.println("House prices sorted Des ="+intprice );
 		
 		//select 5th property
-	//	Wait.getExplicitWaitClicable(driver, pf.getHomePrices().get(4));
-		Wait.getExplicitWaitVisible(driver, pf.getHomePrices().get(4));
-	    pf.getHomePrices().get(4).click();
+		//Wait.getExplicitWaitClicable(driver, pf.getHomePrices().get(4));
+		//Wait.getExplicitWaitVisible(driver, pf.getHomePrices().get(4));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", pf.getHomePrices().get(4));
+	   // pf.getHomePrices().get(4).click();
 	    //TakeAppScreenShot.captureScreenShot(driver," selectedproperty");
 	    
 	//    Wait.getExplicitWaitClicable(driver, pf.getPropertyLogo());
@@ -57,7 +61,7 @@ public class HomeSelectionPage extends BaseLogin {
 		} 
 		
 	   //Agent Name
-	    Wait.getExplicitWaitVisible(driver, pf.getAgentName());
+	   // Wait.getExplicitWaitVisible(driver, pf.getAgentName());
 	    System.out.println("Agent name is=" +pf.getAgentName().getText());
 	
          //Agent phNumber
@@ -80,8 +84,9 @@ public class HomeSelectionPage extends BaseLogin {
 	public static void main(String[] args) throws Throwable {
 		getProperty();
 	}
+   }
 	
-}
+
 	
 
 

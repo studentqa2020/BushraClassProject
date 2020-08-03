@@ -5,6 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,7 +24,7 @@ public class BaseLogin {
 
 	protected static WebDriver driver;
 	
-	public static void getLogin() throws Throwable {
+	public static WebDriver getLogin() throws Throwable {
 		
 		System.setProperty("webdriver.chrome.driver", "./Driver/chromedriver.exe");
 		System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
@@ -33,11 +34,13 @@ public class BaseLogin {
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.get(BaseConfig.getconfig("URL"));
-		
+	
 		LoginPage login =new LoginPage(driver);
 		System.out.println(driver.getTitle());
+		
 		login.getClickAllcookies().click();
 		login.getLogin().click();
+		
 		System.out.println(driver.getCurrentUrl());
 		System.out.println(driver.getTitle());
 		
@@ -52,6 +55,7 @@ public class BaseLogin {
 		login.getSubmit().click();		
 		System.out.println(driver.getTitle());
 		//driver.quit();
+		return driver;
 	
 	}
 }

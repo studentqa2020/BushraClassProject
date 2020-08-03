@@ -34,6 +34,11 @@ public class Wait {
 
 		WebDriverWait obj = new WebDriverWait(driver, 30);
 		obj.until(ExpectedConditions.visibilityOfElementLocated(locator));		
-		
-	}
+		}
+//	public  static void getExplicitWaitVisible(WebDriver driver, WebElement element){
+//		  
+//		 WebDriverWait wait = new WebDriverWait(driver, 30);
+//		 wait.until(ExpectedConditions.v)
+
 }
+
